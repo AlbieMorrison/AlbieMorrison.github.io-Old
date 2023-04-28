@@ -19,6 +19,14 @@ body,
     overflow: hidden;
 }
 
+a {
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+}
+
 div.box {
     border: 1px solid black;
     background-color: white;
@@ -32,7 +40,8 @@ div.box {
 }
 
 span.name,
-span.desc {
+span.desc,
+span.tip {
     position: relative;
     padding: 5px 4px;
     width: 100%;
@@ -51,6 +60,11 @@ span.name {
 span.desc {
     background-color: white;
     display: none;
+}
+
+span.tip {
+    padding: 0;
+    font-size: 10px;
 }
 
 span.name.collapsed {

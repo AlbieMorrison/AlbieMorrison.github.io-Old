@@ -8,12 +8,14 @@
         angle?: number;
         children?: DataBox[];
         drawn?: boolean;
+        path?: string;
     };
 
     const data: DataBox[] = [
         {
             name: "Albie Morrison",
             desc: "Me",
+            path: "/index.html",
             children: [
                 {
                     name: "Family",
@@ -26,23 +28,55 @@
                 {
                     name: "Friends",
                     desc: "People who I choose to spend time around; a bit of a different relationship than family.",
+                    children: [
+                        {
+                            name: "LOGIC",
+                            desc: "Many of my best friends are from LOGIC Speech and Debate club.",
+                            path: "https://www.homeschool-life.com/1298/"
+                        }
+                    ]
                 },
                 {
                     name: "Projects/Hobbies",
                     desc: "Stuff I like doing.",
+                },
+                {
+                    name: "Art",
+                    desc: "Even a nerdy guy can express through art!",
+                    children: [
+                        {
+                            name: "Music",
+                            desc: "The musical/performing arts are some of my personal favorites."
+                        },
+                        {
+                            name: "Origami",
+                            desc: "Folding paper",
+                            children: [
+
+                            ]
+                        },
+                        {
+                            name: "Origami",
+                            desc: "Folding paper",
+                            children: [
+
+                            ]
+                        }
+                    ]
                 }
             ]
         }
     ];
-    const distBetweenNodes = 175;
+    const distBetweenNodes = 200;
 
     let canvas: HTMLCanvasElement = document.getElementById("main_canvas") as HTMLCanvasElement;
     let ctx: CanvasRenderingContext2D = canvas.getContext("2d")!;
 
     var halfX = canvas.width / 2;
     var halfY = canvas.height / 2;
-    var mouseX: number = 0,
-        mouseY: number = 0;
+    var mouseX: number = halfX,
+        mouseY: number = halfY;
+    var startMovement = false;
 
     function centerCoords(x: number, y: number): Position {
         return [
@@ -83,7 +117,6 @@
         let dx = -Math.cos(moveDir) * moveSpeed;
         let dy = -Math.sin(moveDir) * moveSpeed;
         let afterDist = Math.hypot(canvas.width / 2 - halfX - dx, canvas.height / 2 - halfY - dy);
-        console.log(curDist);
         if (afterDist < curDist) {
             halfX += dx;
             halfY += dy;
@@ -112,6 +145,9 @@
         canvas.height = document.body.clientHeight;
         halfX = canvas.width / 2;
         halfY = canvas.height / 2;
+        mouseX = halfX;
+        mouseY = halfY;
+        startMovement = false;
         (document.querySelectorAll("div.box") as NodeListOf<HTMLDivElement>).forEach((el) => {
             el.style.left = (Number(el.style.left.slice(0, -2)) + halfX - oldHalfX) + "px";
             el.style.top = (Number(el.style.top.slice(0, -2)) + halfY - oldHalfY) + "px";
@@ -119,17 +155,27 @@
     }
 
     function mouseMove(e: MouseEvent) {
-        mouseX = e.x;
-        mouseY = e.y;
+        if (startMovement) {
+            mouseX = e.x;
+            mouseY = e.y;
+        } else {
+            if (Math.hypot(canvas.width / 2 - e.x, canvas.height / 2 - e.y) < 300) {
+                startMovement = true;
+            }
+        }
     }
 
     function expandDescBox(div: HTMLDivElement) {
+        window.removeEventListener("mousemove", mouseMove);
+        mouseX = canvas.width / 2;
+        mouseY = canvas.height / 2;
         div.style.zIndex = "15";
         div.querySelector("span.name")?.classList.remove("collapsed");
         (div.querySelector("span.desc") as HTMLSpanElement).style.display = "inline-block";
     }
 
     function collapseDescBox(div: HTMLDivElement) {
+        window.addEventListener("mousemove", mouseMove);
         div.style.zIndex = "unset";
         div.querySelector("span.name")?.classList.add("collapsed");
         (div.querySelector("span.desc") as HTMLSpanElement).style.display = "none";
@@ -151,7 +197,23 @@
         let desc = document.createElement("span");
         desc.classList.add("desc");
         desc.innerHTML = box?.desc ?? "";
-        div.append(name, document.createElement("br"), desc);
+        if (box.path !== undefined) {
+            let a = document.createElement("a");
+            a.href = box.path.startsWith("/")
+                ? window.location.href.substring(0, window.location.href.lastIndexOf("/")) + box.path
+                : box.path;
+            a.target = box.path.startsWith("/")
+                ? "_self"
+                : "_blank";
+            let tip = document.createElement("span");
+            tip.classList.add("tip");
+            tip.innerText = "Click for more information";
+            desc.append(document.createElement("br"), tip);
+            a.append(name, document.createElement("br"), desc);
+            div.append(a);
+        } else {
+            div.append(name, document.createElement("br"), desc);
+        }
         div.style.left = pos[0] + "px";
         div.style.top = pos[1] + "px";
         document.body.append(div);
@@ -167,7 +229,10 @@
             let angle: number;
             if (prevAngle !== undefined && prevBoxNum) {
                 let angleBetweenPrevBoxes = (2 * Math.PI / prevBoxNum);
-                angle = prevAngle - 0.9 * angleBetweenPrevBoxes + (1.8 * angleBetweenPrevBoxes / numBoxes) * i;
+                angle = numBoxes > 1
+                    ? prevAngle - 0.8 * angleBetweenPrevBoxes + (1.6 * angleBetweenPrevBoxes / (numBoxes - 1)) * i
+                    : prevAngle - (boxes[i].name.length % 2 == 0 ? 0.25 : -0.25);
+                angle += ((boxes[i > 0 ? i - 1 : numBoxes - 1]?.children?.length || 0) - (boxes[(i + 1) % numBoxes]?.children?.length || 0)) * 0.1;
             } else {
                 angle = (2 * Math.PI / numBoxes) * i - Math.PI / numBoxes / 2;
             }
@@ -184,14 +249,14 @@
                 boxes[i].drawn = true;
             }
             if (boxes[i]?.children !== undefined) {
-                drawBoxes(boxes[i].children!, ...pos, distBetweenNodes * 1.35, angle, numBoxes, Math.max(Math.floor(lineWidth * 0.7), 2));
+                drawBoxes(boxes[i].children!, ...pos, distBetweenNodes * 1.2, angle, numBoxes, Math.max(Math.floor(lineWidth * 0.9), 2));
             }
         }
     }
 
     addDescBox(data[0], 0, 0);
     window.onresize = resizeCanvas;
-    window.onmousemove = mouseMove;
+    window.addEventListener("mousemove", mouseMove);
     resizeCanvas();
     redraw();
 })();
