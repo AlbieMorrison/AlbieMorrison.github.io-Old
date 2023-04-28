@@ -27,7 +27,7 @@ div.box {
     max-width: 18%;
     z-index: 10;
     transform: translate(-50%, -50%);
-    word-wrap: normal;
+    word-wrap: break-word;
     cursor: default;
 }
 
