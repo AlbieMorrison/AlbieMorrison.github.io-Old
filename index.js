@@ -158,7 +158,8 @@
         children: [
             {
                 name: "Physical",
-                desc: "Projects made in reality."
+                desc: "Projects made in reality.",
+                children: []
             },
             {
                 name: "Digital",
@@ -181,8 +182,45 @@
                     VIOLIN,
                     {
                         name: "Music arrangement",
-                        desc: "Another musical art I engage in is arranging music.",
-                        children: []
+                        desc: "Another musical art I engage in is arranging songs.",
+                        children: [
+                            {
+                                name: "How do I arrange?",
+                                desc: "Through a mixture of listening, analyzing, and a great free software.",
+                                children: [
+                                    {
+                                        name: "Software",
+                                        desc: "To arrange music, I use a free software called Musescore, which I've found to be excellent and fairly easy to use.",
+                                        path: "https://musescore.org/en"
+                                    },
+                                    {
+                                        name: "Listening",
+                                        desc: "For me, main part of arranging any piece of music has always been listening to it repeatedly, slowing it down, and working a few notes at a time."
+                                    }
+                                ]
+                            },
+                            {
+                                name: "Pieces",
+                                desc: "I have arranged several musical pieces, mostly from The Legend of Zelda: Breath of the Wild (a video game).",
+                                children: [
+                                    {
+                                        name: "BOTW",
+                                        desc: `Here is a sampling of the songs from Breath of the Wild that I have arranged:
+                                            <ul><li><a href="./resources/Attack_on_Vah_Medoh.pdf" target="_blank">Attack on Vah Medoh</a></li>
+                                            <li><a href="./resources/Calamity_Ganon_Medley.pdf" target="_blank">Calamity Ganon (Medley)</a></li>
+                                            <li><a href="./resources/Dark_Beast_Ganon_Medley.pdf" target="_blank">Dark Beast Ganon (Medley)</a></li>
+                                            <li><a href="./resources/Do_You_Remember.pdf" target="_blank">Do You Remember</a></li>
+                                            <li><a href="./resources/Epilogue.pdf" target="_blank">Epilogue</a></li>
+                                            <li><a href="./resources/Guardian_Scout_Battle_(Shrine_Battle).pdf" target="_blank">Guardian Scout Battle (Shrine Battle)</a></li>
+                                            <li><a href="./resources/Molduga_Battle.pdf" target="_blank">Molduga Battle</a></li></ul>`
+                                    },
+                                    {
+                                        name: "Other",
+                                        desc: "I have also arranged a few other songs like Dance of the Sugar Plum Fairy from the Nutcracker."
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 ]
             },
@@ -283,23 +321,26 @@
     const levels = 6;
     let canvas = document.getElementById("main_canvas");
     let ctx = canvas.getContext("2d");
+    let container = document.getElementById("container");
     var halfX = canvas.width / 2;
     var halfY = canvas.height / 2;
     var mouseX = halfX, mouseY = halfY;
     var startMovement = false;
+    var boxOpen = false;
+    var framesWithBoxOpen = 0;
     function centerCoords(x, y) {
         return [
             Math.round(x + halfX),
             Math.round(y + halfY)
         ];
     }
-    function drawCrosses() {
+    function drawCrosses(xOffset = 0, yOffset = 0) {
         ctx.lineWidth = 1;
         ctx.strokeStyle = "black";
         for (let i = 0; i < 5; i++) {
             for (let j = 0; j < 5; j++) {
                 ctx.save();
-                ctx.translate(canvas.width / 4 * j, canvas.height / 4 * i);
+                ctx.translate(canvas.width / 4 * j + xOffset, canvas.height / 4 * i + yOffset);
                 ctx.beginPath();
                 ctx.moveTo(-9, 0);
                 ctx.lineTo(9, 0);
@@ -311,13 +352,16 @@
         }
     }
     function redraw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        drawCrosses();
-        drawBoxes(DATA[0]?.children, 0, 0, undefined, undefined, undefined, 12);
+        if (boxOpen) {
+            framesWithBoxOpen++;
+        }
+        else {
+            framesWithBoxOpen = 1;
+        }
         let xOffset = mouseX - canvas.width / 2;
         let yOffset = mouseY - canvas.height / 2;
         let curMouseDist = Math.hypot(xOffset, yOffset);
-        let moveSpeed = Math.min(Math.max((curMouseDist - 100) / 70, 0), 5);
+        let moveSpeed = framesWithBoxOpen < 20 ? Math.min(Math.max((curMouseDist - 100) / 70, 0), 5) / (framesWithBoxOpen / 2) : 0;
         let moveDir = Math.atan2(yOffset, xOffset);
         let curDist = Math.hypot(canvas.width / 2 - halfX, canvas.height / 2 - halfY);
         let dx = -Math.cos(moveDir) * moveSpeed;
@@ -342,6 +386,9 @@
                 el.style.top = (Number(el.style.top.slice(0, -2)) + dy) + "px";
             });
         }
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawCrosses(Math.sqrt(Math.abs(xOffset)) * -xOffset / 100, Math.sqrt(Math.abs(yOffset)) * -yOffset / 100);
+        drawBoxes(DATA[0]?.children, 0, 0, undefined, undefined, undefined, 12);
         requestAnimationFrame(redraw);
     }
     function resizeCanvas() {
@@ -371,15 +418,13 @@
         }
     }
     function expandDescBox(div) {
-        window.removeEventListener("mousemove", mouseMove);
-        mouseX = canvas.width / 2;
-        mouseY = canvas.height / 2;
+        boxOpen = true;
         div.style.zIndex = "15";
         div.querySelector("span.name")?.classList.remove("collapsed");
         div.querySelector("span.desc").style.display = "inline-block";
     }
     function collapseDescBox(div) {
-        window.addEventListener("mousemove", mouseMove);
+        boxOpen = false;
         div.style.zIndex = "unset";
         div.querySelector("span.name")?.classList.add("collapsed");
         div.querySelector("span.desc").style.display = "none";
@@ -420,7 +465,7 @@
         }
         div.style.left = pos[0] + "px";
         div.style.top = pos[1] + "px";
-        document.body.append(div);
+        container.append(div);
     }
     function drawBoxes(boxes, startX, startY, dist = distBetweenNodes, prevAngle, prevBoxAngle, lineWidth = 2) {
         let numBoxes = boxes.length;
