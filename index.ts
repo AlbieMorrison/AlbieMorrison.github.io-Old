@@ -86,7 +86,7 @@
                         children: [
                             {
                                 name: "LOGIC",
-                                desc: "As a family, we participate in this AMAZING speech and debate club. For any homeschooler who hasn't tried speech and debate, this is the thing for you.",
+                                desc: "As a family, we participate in this AMAZING speech and debate club. For any homeschooler who hasn't tried speech and debate, it's great.",
                                 path: "https://www.homeschool-life.com/1298/",
                                 children: [
                                     {
@@ -409,8 +409,8 @@
             });
         }
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        drawCrosses(Math.sqrt(Math.abs(xOffset)) * -xOffset / 100, Math.sqrt(Math.abs(yOffset)) * -yOffset / 100);
-        drawBoxes(DATA[0]?.children!, 0, 0, undefined, undefined, undefined, 12);
+        drawCrosses(xOffset * -0.02, yOffset * -0.02);
+        drawBoxes(DATA[0]?.children!, 0, 0, [undefined, undefined], undefined, undefined, undefined, 12, 1);
         requestAnimationFrame(redraw);
         // }
     }
@@ -445,18 +445,23 @@
     function expandDescBox(div: HTMLDivElement) {
         boxOpen = true;
         div.style.zIndex = "15";
-        div.querySelector("span.name")?.classList.remove("collapsed");
+        let name = div.querySelector("span.name") as HTMLSpanElement;
+        name?.classList.remove("collapsed");
+        // @ts-expect-error
+        name.style.fontSize = null;
         (div.querySelector("span.desc") as HTMLSpanElement).style.display = "inline-block";
     }
 
     function collapseDescBox(div: HTMLDivElement) {
         boxOpen = false;
         div.style.zIndex = "unset";
-        div.querySelector("span.name")?.classList.add("collapsed");
+        let name = div.querySelector("span.name") as HTMLSpanElement;
+        name?.classList.add("collapsed");
+        name?.dataset?.fontSize && (name.style.fontSize = name.dataset.fontSize);
         (div.querySelector("span.desc") as HTMLSpanElement).style.display = "none";
     }
 
-    function addDescBox(box: DataBox, x: number, y: number) {
+    function addDescBox(box: DataBox, x: number, y: number, level: number = 0) {
         let div = document.createElement("div");
         let pos: Position = centerCoords(x, y);
         div.classList.add("box");
@@ -468,7 +473,9 @@
         }
         let name = document.createElement("span");
         name.classList.add("name", "collapsed");
-        name.innerText = box.name;
+        name.dataset.fontSize = Math.max(30 - level * 4, 18) + "px";
+        name?.dataset?.fontSize && (name.style.fontSize = name.dataset.fontSize);
+        name.innerHTML = box.name.replaceAll(" ", "&nbsp;");
         let desc = document.createElement("span");
         desc.classList.add("desc");
         desc.innerHTML = box?.desc ?? "";
@@ -494,11 +501,12 @@
         container.append(div);
     }
 
-    function drawBoxes(boxes: DataBox[], startX: number, startY: number,
+    function drawBoxes(boxes: DataBox[], startX: number, startY: number, aunts: [DataBox?, DataBox?],
         dist: number = distBetweenNodes, prevAngle?: number, prevBoxAngle?: number,
-        lineWidth: number = 2) {
+        lineWidth: number = 2, level: number = 0) {
         let numBoxes = boxes.length;
         ctx.strokeStyle = "black";
+        let cousinScaleFac: number = 1 + (aunts[0]?.children !== undefined ? 0 : 0.4) + (aunts[1]?.children !== undefined ? 0 : 0.4);
         for (let i = 0; i < numBoxes; i++) {
             ctx.lineWidth = lineWidth;
             let angle: number;
@@ -506,11 +514,11 @@
             let thisAngle: number;
             if (prevAngle !== undefined && prevBoxAngle) {
                 angle = numBoxes > 4
-                    ? prevAngle - 2 * prevBoxAngle + (4 * prevBoxAngle / (numBoxes - 1)) * i
+                    ? prevAngle - 1.5 * cousinScaleFac * prevBoxAngle + (3 * cousinScaleFac * prevBoxAngle / (numBoxes - 1)) * i
                     : numBoxes > 2
-                        ? prevAngle - 0.85 * prevBoxAngle + (1.7 * prevBoxAngle / (numBoxes - 1)) * i
+                        ? prevAngle - 0.6 * cousinScaleFac * prevBoxAngle + (1.2 * cousinScaleFac * prevBoxAngle / (numBoxes - 1)) * i
                         : numBoxes > 1
-                            ? prevAngle - 0.45 * prevBoxAngle + (0.9 * prevBoxAngle / (numBoxes - 1)) * i
+                            ? prevAngle - 0.5 * cousinScaleFac * prevBoxAngle + (1 * cousinScaleFac * prevBoxAngle / (numBoxes - 1)) * i
                             : prevAngle - (boxes[i].name.length % 2 == 0 ? -0.25 : 0.25);
                 if (numBoxes > 2) {
                     thisAngle = (1.6 * prevBoxAngle / (numBoxes - 1));
@@ -522,7 +530,7 @@
                 // if (!(boxes[i - 1]?.children || boxes[i + 1]?.children)) {
                 //     thisAngle *= 2;
                 // }
-                angle += ((boxes[i - 1]?.children?.length ?? 0) - (boxes[i + 1]?.children?.length ?? 0)) * 0.05;
+                boxes[i]?.children !== undefined && (angle += ((boxes[i - 1]?.children?.length ?? 0) - (boxes[i + 1]?.children?.length ?? 0)) * 0.05);
             } else {
                 angle = (2 * Math.PI / numBoxes) * i - Math.PI / numBoxes / 2;
                 thisAngle = 2 * Math.PI / numBoxes;
@@ -536,11 +544,14 @@
             ctx.lineTo(...centerCoords(...pos));
             ctx.stroke();
             if (!boxes[i].drawn) {
-                addDescBox(boxes[i], ...pos);
+                addDescBox(boxes[i], ...pos, level);
                 boxes[i].drawn = true;
             }
             if (boxes[i]?.children !== undefined) {
-                drawBoxes(boxes[i].children!, ...pos, distBetweenNodes * 0.9, angle, thisAngle, Math.max(Math.floor(lineWidth * 0.7), 2));
+                drawBoxes(boxes[i].children!, ...pos, [
+                        boxes[i - 1] ?? aunts[0]?.children?.[(aunts[0]?.children?.length ?? 0) - 1],
+                        boxes[i + 1] ?? aunts[1]?.children?.[0]
+                    ], distBetweenNodes * 0.9, angle, thisAngle, Math.max(Math.floor(lineWidth * 0.7), 2), level + 1);
             }
         }
     }
