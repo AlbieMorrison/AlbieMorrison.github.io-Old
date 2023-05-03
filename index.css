@@ -57,14 +57,14 @@ img {
 button {
     border: 2px solid black;
     border-radius: 7px;
-    background-color: white;
+    background-color: lightblue;
     padding: 7px;
     margin: 6px 0;
 }
 
 button:hover {
     cursor: pointer;
-    background-color: #ddd;
+    background-color: skyblue;
 }
 
 div.box {
@@ -77,6 +77,16 @@ div.box {
     transform: translate(-50%, -50%);
     word-wrap: break-word;
     cursor: default;
+}
+
+div.container {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 
 span.name,
