@@ -54,6 +54,10 @@ img {
     object-fit: cover;
 }
 
+ul {
+    padding-left: 1.5em;
+}
+
 button {
     border: 2px solid black;
     border-radius: 7px;

@@ -66,13 +66,56 @@
         desc: "All that learning stuff.",
         children: [
             {
+                name: "Where I'm going",
+                desc: "What are the next steps in my education? I always want to learn more.",
+                children: [
+                    {
+                        name: "College?",
+                        desc: `Attending an institution of higher education is something I'd love to do; since I always want to keep learning, going somewhere meant solely for that purpose for an extended period of time would be an amazing opportunity.<br>
+                            <p>If I can go to college, it'll probably be at Cedarville University in Ohio. I will major in Computer Engineering and minor in Bible and possibly Entrepreneurship.</p>`
+                    },
+                    {
+                        name: "No college?",
+                        desc: "Even if I can't afford college, that doesn't mean I will stop learning! One of my dreams is to be entrepreneurial and own my own business. If you want to learn more about that, check out the Work node."
+                    }
+                ]
+            },
+            {
                 name: "Where I've been",
                 desc: "I was home educated from birth through high school.",
                 children: [
                     {
+                        name: "Early education",
+                        desc: `I've always loved math, science, and pretty much anything technical. Since I learned to read when I was 3, I haven't stopped reading books, papers, instructions, documentation, encyclopedias, and many other things.<br>
+                            <p>During my younger years, my parents also put a lot of work into making sure I learned everything I needed to, even the stuff I didn't like (writing, for example).<br>
+                            That work has paid off, and now I like almost every subject (with the exception of broad history courses, although I still like specific ones).</p>`,
+                        children: [
+                            {
+                                name: "Scratch",
+                                desc: "One of the more nerdy things I did when I was younger was coding projects on Scratch, which is a visual, block-based coding tool made by MIT.",
+                                path: "https://scratch.mit.edu/"
+                            },
+                            {
+                                name: "Algebra",
+                                desc: "I told you I've always been math-oriented...well, here's the proof: I started Algebra 1 (using the excellent Math-U-See curriculum) when I was 11."
+                            }
+                        ]
+                    },
+                    {
                         name: "High school",
                         desc: "Part of my education at home involving \"high school-level\" courses.",
                         children: [
+                            {
+                                name: "Language",
+                                desc: `I've gone through several language arts courses, including Wordsmith Craftsman, IEW's Student Writing Intensive, and their Windows to the World curriculum.<br>
+                                    <p>Along with that, I've had the pleasure of reading many great classic books like The Count of Monte Cristo, War and Peace, the Iliad and the Odyssey, etc.</p>
+                                    <p>Overall, the language courses I've taken have greatly improved my ability to communicate through words on a page (or screen, as the case may be), even if writing isn't my strongest subject.</p>`
+                            },
+                            {
+                                name: "Math",
+                                desc: `As you can probably tell, math is one of my favorites. I've completed several levels of algebra, as well as geometry, trigonometry, and calculus A (all through Math-U-See).<br>
+                                    <p>Regardless of what many people say, math is one of the most fun subjects for me; it's the language of order that helps us describe how God made the world in an orderly way.</p>`
+                            },
                             {
                                 name: "LOGIC",
                                 desc: "As a family, we participate in this AMAZING speech and debate club. For any homeschooler who hasn't tried speech and debate, it's great.",
@@ -91,17 +134,6 @@
                                 ]
                             },
                             {
-                                name: "Language",
-                                desc: `I've gone through several language arts courses, including Wordsmith Craftsman, IEW's Student Writing Intensive, and their Windows to the World curriculum.<br>
-                                    <p>Along with that, I've had the pleasure of reading many great classic books like The Count of Monte Cristo, War and Peace, the Iliad and the Odyssey, etc.</p>
-                                    <p>Overall, the language courses I've taken have greatly improved my ability to communicate through words on a page (or screen, as the case may be), even if writing isn't my strongest subject.</p>`
-                            },
-                            {
-                                name: "Math",
-                                desc: `As you can probably tell, math is one of my favorites. I've completed several levels of algebra, as well as geometry, trigonometry, and calculus A (all through Math-U-See).<br>
-                                    <p>Regardless of what many people say, math is one of the most fun subjects for me; it's the language of order that helps us describe how God made the world in an orderly way.</p>`
-                            },
-                            {
                                 name: "Sciences",
                                 desc: "Biology, Chemistry, Anatomy and Physiology, Botany, Fizzicks; they are all ways to help us describe God's creation, and that's what makes them enjoyable."
                             },
@@ -110,38 +142,6 @@
                                 desc: "What I have put here is just a small selection of the many things I have learned about throughout my education, which has given me the capabilities I have now."
                             }
                         ]
-                    },
-                    {
-                        name: "Early education",
-                        desc: `I've always loved math, science, and pretty much anything technical. Since I learned to read when I was 3, I haven't stopped reading books, papers, instructions, documentation, encyclopedias, and many other things.<br>
-                            <p>During my younger years, my parents also put a lot of work into making sure I learned everything I needed to, even the stuff I didn't like (writing, for example).<br>
-                            That work has paid off, and now I like almost every subject (with the exception of broad history courses, although I still like specific ones).</p>`,
-                        children: [
-                            {
-                                name: "Scratch",
-                                desc: "One of the more nerdy things I did when I was younger was coding projects on Scratch, which is a visual, block-based coding tool made by MIT.",
-                                path: "https://scratch.mit.edu/"
-                            },
-                            {
-                                name: "Algebra",
-                                desc: "I told you I've always been math-oriented...well, here's the proof: I started Algebra 1 (using the excellent Math-U-See curriculum) when I was 11."
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                name: "Where I'm going",
-                desc: "What are the next steps in my education? I always want to learn more.",
-                children: [
-                    {
-                        name: "College?",
-                        desc: `Attending an institution of higher education is something I'd love to do; since I always want to keep learning, going somewhere meant solely for that purpose for an extended period of time would be an amazing opportunity.<br>
-                            <p>If I can go to college, it'll probably be at Cedarville University in Ohio. I will major in Computer Engineering and minor in Bible and possibly Entrepreneurship.</p>`
-                    },
-                    {
-                        name: "No college?",
-                        desc: "Even if I can't afford college, that doesn't mean I will stop learning! One of my dreams is to be entrepreneurial and own my own business. If you want to learn more about that, check out the Work node."
                     }
                 ]
             }
@@ -149,21 +149,176 @@
     };
     const FRIENDS = {
         name: "Friends",
-        desc: "People who I choose to spend time around; a bit of a different relationship than family.",
-        children: []
+        desc: "N/A",
+        path: "/none.html"
     };
     const PROJECTS = {
         name: "Projects/Hobbies",
         desc: "Stuff I like doing.",
         children: [
             {
-                name: "Physical",
-                desc: "Projects made in reality.",
-                children: []
+                name: "Digital",
+                desc: "Highlight projects in the world of 1s and 0s."
             },
             {
-                name: "Digital",
-                desc: "Projects in the world of 1s and 0s."
+                name: "Physical",
+                desc: "A few highlights of my projects that are made in reality.",
+                children: [
+                    {
+                        name: "2021 Bow Build",
+                        desc: "This was me deciding to use 4-H as an excuse to do something I've always wanted to do: build a shooting bow from scratch.",
+                        children: [
+                            {
+                                name: "Photos",
+                                desc: "Some pictures of the process.",
+                                children: [
+                                    {
+                                        name: "The board",
+                                        desc: `<img src="img/bow/stave_0.jpg" alt="Bow stave" width="256" height="256"><br>
+                                            <img src="img/bow/stave_1.jpg" alt="Bow stave end view" width="256" height="256">`
+                                    },
+                                    {
+                                        name: "Jigs",
+                                        desc: `<img src="img/bow/jig_building.jpg" alt="Drilling to make jig" width="256" height="256">`
+                                    },
+                                    {
+                                        name: "Shaving wood",
+                                        desc: `<img src="img/bow/shaving_0.jpg" alt="Shaving wood" width="256" height="256">`
+                                    },
+                                    {
+                                        name: "Tips/riser",
+                                        desc: `<img src="img/bow/tip_0.jpg" alt="Aluminum tip" width="256" height="256"><br>
+                                            Look carefully to see the aluminum riser bonded onto the other side of the bow.<br>
+                                            <img src="img/bow/riser_0.jpg" alt="Aluminum riser" width="256" height="256">`
+                                    },
+                                    {
+                                        name: "Tillering",
+                                        desc: `<img src="img/bow/tillering_0.jpg" alt="Tillering side view" width="256" height="256"><br>
+                                            <img src="img/bow/tillering_1.jpg" alt="Tillering stick stood up" width="256" height="256"><br>
+                                            <img src="img/bow/tillering_2.jpg" alt="Tillering full view" width="256" height="256">`
+                                    }
+                                ]
+                            },
+                            {
+                                name: "Info",
+                                desc: "Basic info about the bow build.",
+                                children: [
+                                    {
+                                        name: "Costs",
+                                        desc: `<ul><li>Wood bow stave: $35.90, including shipping and tax.</li>
+                                            <li>Aluminum for tip overlays and riser: free to me (from our company's stock), but I used ~$6.99 of aluminum stock.</li>
+                                            <li>B55 Bowstring material: $16 per spool, and one spool can make 10-15 bowstrings.</li>
+                                            <li>Bowstring "serving" thread and jig: $16.99</li>
+                                            <li>Wood for tillering tree and bowstring jig: free to me; these were just scraps of lumber we had laying around.</li></ul><br>
+                                            <p>So overall to build the bow, it was somewhere on the order of $60 for this whole bow, plus a bit of costs for the various jigs, fixtures, and tools used during the process.</p>`
+                                    },
+                                    {
+                                        name: "Time",
+                                        desc: "All told, including research, decisions about things like what wood to use and the riser and tip material, I spent close to 70 hours on this project. It's not something you can just pick up and do in a weekend!"
+                                    },
+                                    {
+                                        name: "Result",
+                                        desc: `The normal target for a bow draw is 28". My bow got to 27" before breaking less than 45 minutes away from being able to actually shoot it.
+                                            <p>A few hours before, I had predicted that if it broke, it would break at a slightly thin spot near the end of the upper limb. It broke exactly where I said it would.</p>`
+                                    }
+                                ]
+                            },
+                            {
+                                name: "Process",
+                                desc: "How do you go about building a bow?",
+                                children: [
+                                    {
+                                        name: "Summary",
+                                        desc: `January - February: Research and decisions about materials, sources, technique, etc.
+                                            <p>March: Ordered bow stave (hickory board) from Ringing Rocks Archery; decided on bowstring material, ordered B55 string material and serving thread with jig; research on bowstring making, decided on endless loop type of string; fabricated bowstring jig of my own design; cut angles to bring wood to rough shape.</p>
+                                            <p>April: Sanded bow to round edges; decided on tip overlay and riser material (aluminum); fabricated tip overlays and riser; decided on regular Gorilla epoxy for gluing tips and riser on; bonded tip overlays and riser to bow; started tillering.</p>
+                                            <p>May: 25+ hours of tillering</p>
+                                            <p>June: Tillering to one inch off target draw length; within one hour of shooting the bow breaks.</p>`
+                                    },
+                                    {
+                                        name: "Details",
+                                        desc: `Late March:
+                                            <ul>
+                                                <li>Cut angles on main wood to 1/2" x 3/16" tips and a ~8" long handle. Never cut the back of the bow (that is, the side that faces away from you when shooting)!</li>
+                                            </ul>
+                                            <p>April 9:
+                                            <ul>
+                                                <li>Sanded belly edge of bow to round shape, variable radius curve to riser area</li>
+                                                <li>What glue to use for tip overlays and riser?
+                                                <ul>
+                                                    <li>EA-40 bow glue is ideal, but unavailable</li>
+                                                    <li>E6000: good, might be too flexible</li>
+                                                    <li>Do we have regular epoxy? Ask Dad</li>
+                                                    <li>Wood glue - doesn't work on aluminum</li>
+                                                </ul></li>
+                                                <li>What material for tip overlays and riser?
+                                                <ul>
+                                                    <li>Riser purpose is to stop shock from traveling through the handle of the bow (metal could be even better than traditional hardwood)</li>
+                                                    <li>Purpose of tip overlays is to keep the string from wearing into the tips of the actual bow and to keep the tips together; metal could be good for this too</li>
+                                                    <li>Hardwood riser and phenolic overlays would be ideal, but I have no phenolic</li>
+                                                    <li>Aluminum catches eye for riser, decided on aluminum riser</li>
+                                                    <li>Asked experienced bowyers on Reddit about aluminum for tips as well; answer of yes</li>
+                                                </ul></li>
+                                                <li>Decided on standard Gorilla epoxy for gluing tip overlays and riser on, under advice of Dad</li>
+                                                <li>Cut riser and tips and sanded sharp edges</li>
+                                                <li>Glued on tips and riser to wood (epoxy is slippery and hard to keep clamped in one place!)</li>
+                                            </ul></p>
+                                            <p>June 18:
+                                            <ul>
+                                                <li>Tillering - got to 45# at 27"</li>
+                                                <li>One inch off target</li>
+                                                <li>No remaining wood removal, only pulling the bow to the next notch and waiting for thirty minutes</li>
+                                                <li>Bow breaks!</li>
+                                                <li>Breaks in the thin spot that I predicted it would break in if it did break</li>
+                                            </ul></p>`,
+                                        children: [
+                                            {
+                                                name: "Jig building",
+                                                desc: `You need a jig to make bowstrings (which are twisted out of up to 20 strands of bowstring material, then bound together with small thread called "serving" thread).
+                                                    <p>After deciding on the type of string to use, I had to build a jig to be able to make that kind of string in a custom length and number of strands. All of the available jigs for sale were way overpriced for what they were, so I decided to build my own.</p>
+                                                    <p>The jig is made out of 2x6 lumber, 1/4" steel bar, some 3/8" bolts, washers, and nuts, and drywall screws.</p>
+                                                    <p>I researched necessary string lengths and regular jigs, then drew up some plans and fabricated my own jig out of materials we had around on the property.<br>
+                                                    Now I can make pretty much any length of bowstring that a normal human could ever need!</p>`
+                                            },
+                                            {
+                                                name: "Starting out",
+                                                desc: `I started with a 70" x 1.5", 0.875" thick hickory board. I decided on hickory because it has a strong reputation among the worldwide bowyer community for being nearly bombproof.
+                                                    <p>The stave was ordered online off of Ringing Rocks Archery for $35.90 including shipping and came in mid to late March. When the board came, it looked to be a near perfect bow stave, with straight grain, little to no runoff, and very square edges all around.</p>
+                                                    <p>The first cuts were done in late March with a DoAll bandsaw in our shop, and they were my first cuts ever made on a bandsaw (another skill learned!). I cut angles from 4 inches on either side of the center to the ends, angled in to make the board 3/8” by 5/16” on the ends. The thinner direction is the way the bow bends.</p>`
+                                            },
+                                            {
+                                                name: "Bowstring",
+                                                desc: `Making a bowstring is a very involved process that takes concentration, consistency, and a good eye. I used a great tutorial for the actual fabrication of the string that can be found at the link this node points to.
+                                                    <p>For this bow, I needed to be able to have custom length strings, and so I decided to use B55 Dacron material for the strings, and a standard nylon serving thread to keep the string together and to keep it from wearing in important spots.</p>
+                                                    <p>The next step in having strings to use was picking a type of string to use. There are several different types of string, but the main two are called Flemish Twist and Endless Loop. I decided on endless loop type because it gives better shooting velocity and is slightly easier to build a jig for.</p>`,
+                                                path: "https://sensiblesurvival.org/2015/05/27/make-a-continuous-loop-bowstring-part-1/"
+                                            },
+                                            {
+                                                name: "Tillering",
+                                                desc: `Tillering is the main grunt work of building a bow. You have to bend the bow a little more each time, then shave off small amounts of wood to even out the curve of the back of the bow, then bend it again a little more, etc.
+                                                    <p>It took well over 30 hours of tillering alone to get to the point where the bow broke. Tillering is fun but very monotonous and gets boring after a long time.</p>
+                                                    <p>It's very important that you get the tiller near perfect otherwise it is very easy to break a bow, even when using hickory wood.</p>`
+                                            },
+                                            {
+                                                name: "Tips/riser",
+                                                desc: `The tip overlays are meant to protect the tips from wearing out by the string rubbing on the wood of the actual bow. The riser is meant for stopping shock from traveling through the handle of the bow.
+                                                    <p>Aluminum is a good material for both of these, as it's strong but light, so I made tip overlays by cutting out small rectangles of aluminum from a sheet, then gluing them two layers thick with Gorilla Epoxy onto the tips of the actual bow.</p>
+                                                    <p>For the riser, I took a thick piece of aluminum bar and cut the ends of it to 45 degree angles, then sanded it to smooth the sharp edges where it was cut. Then I bonded it to the handle with the same epoxy.</p>`
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                name: "Lessons learned",
+                                desc: `<ul><li>Don't hold too high of an expectation, especially on a first try doing a hard and complicated project.</li>
+                                    <li>Don't let it get you down when you fail at something! Just put it down and try again later.</li>
+                                    <li>Sometimes what looks like a failure just ends up being a better story.</li>
+                                    <li>Every bowyer breaks bows!</li></ul>`
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     };
@@ -231,7 +386,7 @@
                     {
                         name: "Roses",
                         desc: `The latest thing I have enjoyed folding is roses:<br>
-                            <img src="./img/origami/roses_top.png" width="256" height="256">`
+                            <img src="./img/origami/roses_top.png" alt="Origami Roses" width="256" height="256">`
                     }
                 ]
             }
@@ -272,7 +427,7 @@
         children: [
             {
                 name: "Religion",
-                desc: "I am a Jesus follower. I'd be overjoyed to talk more about this, just get in touch with me via Discord or email!"
+                desc: "I am a Jesus follower. I'd love to tell you more about this, just get in touch with me via Discord or email!"
             },
             {
                 name: "Contact",
@@ -311,14 +466,14 @@
                 FRIENDS,
                 SCHOOL,
                 WORK,
-                FAMILY,
+                ABOUT_ME,
                 ART,
-                ABOUT_ME
+                FAMILY
             ]
         }
     ];
-    const distBetweenNodes = 400;
-    const levels = 6;
+    const distBetweenNodes = 375;
+    const levels = 7;
     let canvas = document.getElementById("main_canvas");
     let ctx = canvas.getContext("2d");
     let container = document.getElementById("container");
@@ -445,7 +600,7 @@
         };
         let name = document.createElement("span");
         name.classList.add("name", "collapsed");
-        name.dataset.fontSize = Math.max(30 - level * 4, 18) + "px";
+        name.dataset.fontSize = Math.max(32 - level * 4, 16) + "px";
         name?.dataset?.fontSize && (name.style.fontSize = name.dataset.fontSize);
         name.innerHTML = box.name.replaceAll(" ", "&nbsp;");
         let desc = document.createElement("span");
@@ -476,30 +631,31 @@
     function drawBoxes(boxes, startX, startY, aunts, dist = distBetweenNodes, prevAngle, prevBoxAngle, lineWidth = 2, level = 0) {
         let numBoxes = boxes.length;
         ctx.strokeStyle = "black";
-        let cousinScaleFac = 1 + (aunts[0]?.children !== undefined ? 0 : 0.4) + (aunts[1]?.children !== undefined ? 0 : 0.4);
+        let cousinScaleFac = 1 + (aunts[0]?.children !== undefined ? 0 : 0.25) + (aunts[1]?.children !== undefined ? 0 : 0.25);
         for (let i = 0; i < numBoxes; i++) {
             ctx.lineWidth = lineWidth;
             let angle;
-            let thisDist = dist + (i % 2 === 0 ? dist * 0.08 : -dist * 0.08);
+            let thisDist = dist + (i % 2 === 0 ? dist * 0.09 : -dist * 0.09);
+            level > 1 && numBoxes > 3 && (thisDist *= 1.4);
             let thisAngle;
             if (prevAngle !== undefined && prevBoxAngle) {
                 angle = numBoxes > 4
-                    ? prevAngle - 1.5 * cousinScaleFac * prevBoxAngle + (3 * cousinScaleFac * prevBoxAngle / (numBoxes - 1)) * i
+                    ? prevAngle - 1 * cousinScaleFac * prevBoxAngle + (2 * cousinScaleFac * prevBoxAngle / (numBoxes - 1)) * i
                     : numBoxes > 2
                         ? prevAngle - 0.6 * cousinScaleFac * prevBoxAngle + (1.2 * cousinScaleFac * prevBoxAngle / (numBoxes - 1)) * i
                         : numBoxes > 1
-                            ? prevAngle - 0.5 * cousinScaleFac * prevBoxAngle + (1 * cousinScaleFac * prevBoxAngle / (numBoxes - 1)) * i
+                            ? prevAngle - 0.45 * cousinScaleFac * prevBoxAngle + (0.9 * cousinScaleFac * prevBoxAngle / (numBoxes - 1)) * i
                             : prevAngle - (boxes[i].name.length % 2 == 0 ? -0.25 : 0.25);
                 if (numBoxes > 2) {
-                    thisAngle = (1.6 * prevBoxAngle / (numBoxes - 1));
+                    thisAngle = (1.4 * prevBoxAngle / (numBoxes - 1));
                 }
                 else if (numBoxes > 1) {
-                    thisAngle = (0.65 * prevBoxAngle / (numBoxes - 1));
+                    thisAngle = (0.8 * prevBoxAngle / (numBoxes - 1));
                 }
                 else {
-                    thisAngle = prevBoxAngle * 1.3;
+                    thisAngle = prevBoxAngle * 1.1;
                 }
-                boxes[i]?.children !== undefined && (angle += ((boxes[i - 1]?.children?.length ?? 0) - (boxes[i + 1]?.children?.length ?? 0)) * 0.05);
+                boxes[i]?.children !== undefined && (angle += ((boxes[i - 1]?.children?.length ?? 0) - (boxes[i + 1]?.children?.length ?? 0)) * 0.04);
             }
             else {
                 angle = (2 * Math.PI / numBoxes) * i - Math.PI / numBoxes / 2;
