@@ -63,7 +63,7 @@
             },
             {
                 name: "Basic info",
-                desc: `The Morrison household consists of 6 (sometimes squirrely) children and our parents.<br>
+                desc: `The Morrison household consists of 6 (sometimes squirrel-y) children and our parents.<br>
                     <p>We live in Franklin, IN, where you can get all four seasons in a single day.</p>`
             },
             {
@@ -165,17 +165,35 @@
         path: "/none.html"
     };
     const PROJECTS: DataBox = {
-        name: "Projects/Hobbies",
-        desc: "Stuff I like doing.",
+        name: "Projects",
+        desc: "Notable things I have made or done.",
         children: [
             {
                 name: "Digital",
-                desc: "Highlight projects in the world of 1s and 0s."
+                desc: "Some of my favorite/best projects in the world of 1s and 0s."
             },
             {
                 name: "Physical",
                 desc: "A few highlights of my projects that are made in reality.",
                 children: [
+                    // Bookbinding
+                    {
+                        name: "Bookbinding",
+                        desc: "Making books is something I first tried when I was somewhere around 12. That one didn't turn out too well, but since then I've gotten a bit better.",
+                        children: [
+                            {
+                                name: "Photos",
+                                desc: `<img src="img/bookbinding/journal_edge.jpg" alt="Journal, edge on" width="216" height="384">
+                                    <img src="img/bookbinding/journal_top.jpg" alt="Journal, top view" width="384" height="216">`
+                            },
+                            {
+                                name: "Materials",
+                                desc: `I use whatever paper I can find enough of to do these books, which are usually between 100 and 200 pages.
+                                    <p>For the covers, I have tried fabric before, but my favorite is leather. The core of the covers are made of a thin chipboard to give them some flexibility, and then that is covered with whatever other decorations or materials I choose.</p>
+                                    <p>I hand-stitch the binding on every book I make, usually with upholstery thread because it's significantly stronger than normal sewing thread. The stitching is one of the hardest parts of making a book (it's also the actual "binding").</p>`
+                            }
+                        ]
+                    },
                     // 2021 Bow Build
                     {
                         name: "2021 Bow Build",
@@ -186,54 +204,26 @@
                                 desc: "Some pictures of the process.",
                                 children: [
                                     {
-                                        name: "The board",
+                                        name: "Shaping",
                                         desc: `<img src="img/bow/stave_0.jpg" alt="Bow stave" width="256" height="256"><br>
-                                            <img src="img/bow/stave_1.jpg" alt="Bow stave end view" width="256" height="256">`
+                                            <img src="img/bow/stave_1.jpg" alt="Bow stave end view" width="256" height="256">
+                                            <img src="img/bow/shaving_0.jpg" alt="Shaving wood" width="256" height="256">`
                                     },
                                     {
                                         name: "Jigs",
                                         desc: `<img src="img/bow/jig_building.jpg" alt="Drilling to make jig" width="256" height="256">`
                                     },
                                     {
-                                        name: "Shaving wood",
-                                        desc: `<img src="img/bow/shaving_0.jpg" alt="Shaving wood" width="256" height="256">`
-                                    },
-                                    {
                                         name: "Tips/riser",
                                         desc: `<img src="img/bow/tip_0.jpg" alt="Aluminum tip" width="256" height="256"><br>
                                             Look carefully to see the aluminum riser bonded onto the other side of the bow.<br>
-                                            <img src="img/bow/riser_0.jpg" alt="Aluminum riser" width="256" height="256">`
+                                            <img src="img/bow/riser_0.jpg" alt="Aluminum riser" width="256" height="384">`
                                     },
                                     {
                                         name: "Tillering",
-                                        desc: `<img src="img/bow/tillering_0.jpg" alt="Tillering side view" width="256" height="256"><br>
+                                        desc: `<img src="img/bow/tillering_0.jpg" alt="Tillering side view" width="256" height="400"><br>
                                             <img src="img/bow/tillering_1.jpg" alt="Tillering stick stood up" width="256" height="256"><br>
-                                            <img src="img/bow/tillering_2.jpg" alt="Tillering full view" width="256" height="256">`
-                                    }
-                                ]
-                            },
-                            {
-                                name: "Info",
-                                desc: "Basic info about the bow build.",
-                                children: [
-                                    {
-                                        name: "Costs",
-                                        desc: `<ul><li>Wood bow stave: $35.90, including shipping and tax.</li>
-                                            <li>Aluminum for tip overlays and riser: free to me (from our company's stock), but I used ~$6.99 of aluminum stock.</li>
-                                            <li>B55 Bowstring material: $16 per spool, and one spool can make 10-15 bowstrings.</li>
-                                            <li>Bowstring "serving" thread and jig: $16.99</li>
-                                            <li>Wood for tillering tree and bowstring jig: free to me; these were just scraps of lumber we had laying around.</li></ul><br>
-                                            <p>So overall to build the bow, it was somewhere on the order of $60 for this whole bow, plus a bit of costs for the various jigs, fixtures, and tools used during the process.</p>`
-                                    },
-                                    {
-                                        name: "Time",
-                                        desc: "All told, including research, decisions about things like what wood to use and the riser and tip material, I spent close to 70 hours on this project. It's not something you can just pick up and do in a weekend!"
-                                    },
-                                    {
-                                        name: "Result",
-                                        desc: `The normal target for a bow draw is 28". My bow got to 27" before breaking less than 45 minutes away from being able to actually shoot it.
-                                            <p>A few hours before, I had predicted that if it broke, it would break at a slightly thin spot near the end of the upper limb. It broke exactly where I said it would.</p>
-                                            <p>In spite of the bow breaking, it was still enough to win Reserve Champion and 1st place in the 4-H shooting sports category!</p>`
+                                            <img src="img/bow/tillering_2.jpg" alt="Tillering full view" width="400" height="256">`
                                     }
                                 ]
                             },
@@ -287,25 +277,22 @@
                                             </ul></p>`,
                                         children: [
                                             {
-                                                name: "Jig building",
+                                                name: "Jig/string",
                                                 desc: `You need a jig to make bowstrings (which are twisted out of up to 20 strands of bowstring material, then bound together with small thread called "serving" thread).
                                                     <p>After deciding on the type of string to use, I had to build a jig to be able to make that kind of string in a custom length and number of strands. All of the available jigs for sale were way overpriced for what they were, so I decided to build my own.</p>
                                                     <p>The jig is made out of 2x6 lumber, 1/4" steel bar, some 3/8" bolts, washers, and nuts, and drywall screws.</p>
                                                     <p>I researched necessary string lengths and regular jigs, then drew up some plans and fabricated my own jig out of materials we had around on the property.<br>
-                                                    Now I can make pretty much any length of bowstring that a normal human could ever need!</p>`
+                                                    Now I can make pretty much any length of bowstring that a normal human could ever need!</p><br>
+                                                    <p>Making a bowstring is a very involved process that takes concentration, consistency, and a good eye. I used a great tutorial for the actual fabrication of the string that can be found at the link this node points to.</p>
+                                                    <p>For this bow, I needed to be able to have custom length strings, and so I decided to use B55 Dacron material for the strings, and a standard nylon serving thread to keep the string together and to keep it from wearing in important spots.</p>
+                                                    <p>The next step in having strings to use was picking a type of string to use. There are several different types of string, but the main two are called Flemish Twist and Endless Loop. I decided on endless loop type because it gives better shooting velocity and is slightly easier to build a jig for.</p>`,
+                                                path: "https://sensiblesurvival.org/2015/05/27/make-a-continuous-loop-bowstring-part-1/"
                                             },
                                             {
                                                 name: "Starting out",
                                                 desc: `I started with a 70" x 1.5", 0.875" thick hickory board. I decided on hickory because it has a strong reputation among the worldwide bowyer community for being nearly bombproof.
                                                     <p>The stave was ordered online off of Ringing Rocks Archery for $35.90 including shipping and came in mid to late March. When the board came, it looked to be a near perfect bow stave, with straight grain, little to no runoff, and very square edges all around.</p>
                                                     <p>The first cuts were done in late March with a DoAll bandsaw in our shop, and they were my first cuts ever made on a bandsaw (another skill learned!). I cut angles from 4 inches on either side of the center to the ends, angled in to make the board 3/8” by 5/16” on the ends. The thinner direction is the way the bow bends.</p>`
-                                            },
-                                            {
-                                                name: "Bowstring",
-                                                desc: `Making a bowstring is a very involved process that takes concentration, consistency, and a good eye. I used a great tutorial for the actual fabrication of the string that can be found at the link this node points to.
-                                                    <p>For this bow, I needed to be able to have custom length strings, and so I decided to use B55 Dacron material for the strings, and a standard nylon serving thread to keep the string together and to keep it from wearing in important spots.</p>
-                                                    <p>The next step in having strings to use was picking a type of string to use. There are several different types of string, but the main two are called Flemish Twist and Endless Loop. I decided on endless loop type because it gives better shooting velocity and is slightly easier to build a jig for.</p>`,
-                                                path: "https://sensiblesurvival.org/2015/05/27/make-a-continuous-loop-bowstring-part-1/"
                                             },
                                             {
                                                 name: "Tillering",
@@ -324,12 +311,147 @@
                                 ]
                             },
                             {
-                                name: "Lessons learned",
-                                desc: `<ul><li>Don't hold too high of an expectation, especially on a first try doing a hard and complicated project.</li>
-                                    <li>Don't let it get you down when you fail at something! Just put it down and try again later.</li>
-                                    <li>Sometimes what looks like a failure just ends up being a better story.</li>
-                                    <li>Every bowyer breaks bows!</li></ul>`
+                                name: "Info",
+                                desc: "Basic info about the bow build.",
+                                children: [
+                                    {
+                                        name: "Costs",
+                                        desc: `<ul><li>Wood bow stave: $35.90, including shipping and tax.</li>
+                                            <li>Aluminum for tip overlays and riser: free to me (from our company's stock), but I used ~$6.99 of aluminum stock.</li>
+                                            <li>B55 Bowstring material: $16 per spool, and one spool can make 10-15 bowstrings.</li>
+                                            <li>Bowstring "serving" thread and jig: $16.99</li>
+                                            <li>Wood for tillering tree and bowstring jig: free to me; these were just scraps of lumber we had laying around.</li></ul><br>
+                                            <p>So overall to build the bow, it was somewhere on the order of $60 for this whole bow, plus a bit of costs for the various jigs, fixtures, and tools used during the process.</p>`
+                                    },
+                                    {
+                                        name: "Time",
+                                        desc: "All told, including research, decisions about things like what wood to use and the riser and tip material, I spent close to 70 hours on this project. It's not something you can just pick up and do in a weekend!"
+                                    },
+                                    {
+                                        name: "Result",
+                                        desc: `The normal target for a bow draw is 28". My bow got to 27" before breaking less than 45 minutes away from being able to actually shoot it.
+                                            <p>A few hours before, I had predicted that if it broke, it would break at a slightly thin spot near the end of the upper limb. It broke exactly where I said it would.</p>
+                                            <p>In spite of the bow breaking, it was still enough to win Reserve Champion and 1st place in the 4-H shooting sports category!</p>`,
+                                        children: [
+                                            {
+                                                name: "Lessons learned",
+                                                desc: `<ul><li>Don't hold too high of an expectation, especially on a first try doing a hard and complicated project.</li>
+                                                    <li>Don't let it get you down when you fail at something! Just put it down and try again later.</li>
+                                                    <li>Sometimes what looks like a failure just ends up being a better story.</li>
+                                                    <li>Every bowyer breaks bows!</li></ul>`
+                                            }
+                                        ]
+                                    }
+                                ]
                             }
+                        ]
+                    },
+                    // Jetson
+                    {
+                        name: "Mini PC",
+                        desc: "For a while, I thought making a miniature PC out of an NVIDIA Jetson Xavier NX module (miniature GPU-based computer) would be fun...I finally decided to do it in November of 2022.",
+                        children: [
+                            {
+                                name: "Takeaways",
+                                desc: "Persistence, persistence, persistence. And also, when you finally break loose on an issue that has plagued you for hours, days, weeks, or even months of work, it brings a much greater satisfaction than when things just work the first time."
+                            },
+                            {
+                                name: "Build process",
+                                desc: "The whole process from design to build was fun and full of learning opportunities.",
+                                children: [
+                                    {
+                                        name: "Design",
+                                        desc: `From picking components and materials to modeling a case that fit all of the electronics to designing the aesthetics in a way that would be easy to fabricate, the design of this PC was a challenging but enjoyable process.<br>
+                                            <img src="img/mini_pc/design/fan_sketch.png" alt="Sketch" width="300" height="280"><br>
+                                            <img src="img/mini_pc/design/back_case.png" alt="Back case of mini PC" width="300" height="280">
+                                            <p>I used parametric modeling to design each part of the case, then made a virtual assembly of the whole thing to see how it might look.</p>
+                                            <img src="img/mini_pc/design/a203.png" alt="A203 carrier board model" width="256" height="128">
+                                            <p>Figuring out the aesthetics of this case ended up being quite fun.</p>
+                                            <img src="img/mini_pc/design/front_case_assembly.png" alt="Front of case with hexagonal pattern" width="400" height="400">
+                                            <p>As I modeled and designed up this computer, I also had to keep in mind how I was going to make the parts; every method of manufacturing parts has its own strengths and weaknesses, and I was pretty sure I was going to use 3D printing for most of the parts.<br>
+                                            That comes with some challenges, though, as large or flat parts tend to warp with the certain type of plastic I wanted to use.</p>
+                                            <img src="img/mini_pc/design/back_side_full.png" alt="Full assembly" width="420" height="256">
+                                            <p>Overall, at least in the model, I think it turned out pretty well.</p>`
+                                    },
+                                    {
+                                        name: "Build",
+                                        desc: "There were two main parts to building this computer: fabrication (making parts), and assembly (putting them together).",
+                                        children: [
+                                            {
+                                                name: "Fabrication",
+                                                desc: `Most of the parts of this computer were 3D printed out of ABS plastic (the same thing LEGOs are made of).<br>
+                                                    <img src="img/mini_pc/3d_printing_0.jpg" alt="3D printing parts" width="128" height="210">
+                                                    <p>The parts I didn't 3D print or manufacture at home, I got from a variety of sources. For the most part, the outside sourced parts came from <a href="https://www.mcmaster.com/">McMaster Carr</a> and Amazon.</p>
+                                                    <img src="img/mini_pc/parts_0.jpg" alt="Pile of parts" width="420" height="256">
+                                                    <p>The actual computer module fits in the palm of my hand!</p>
+                                                    <img src="img/mini_pc/jetson_scale.jpg" alt="Jetson scale image" width="256" height="128">
+                                                    <img src="img/mini_pc/jetson_parts_0.jpg" alt="Jetson parts" width="256" height="128">
+                                                    <p>While i was waiting for those parts to come, I did design work and 3D printing.<br>
+                                                    I ended up with quite the spread of 3D printed parts in addition to the parts bought from outside sources</p>
+                                                    <img src="img/mini_pc/case_parts_0.jpg" alt="3D printed case parts" width="420" height="256">`
+                                            },
+                                            {
+                                                name: "Assembly",
+                                                desc: `Once I had all the parts, it was time to assemble this thing.<br>
+                                                    <img src="img/mini_pc/top_0.jpg" alt="Top with magnets glued in" width="420" height="256">
+                                                    <p>First, there were small things like gluing in the magnets used to hold the transparent sides of the PC on at the top.<br>
+                                                    There was a variety of assembly required for the case, including gluing, bolts, cutting sheets of acrylic for the side panels, etc.</p>
+                                                    <img src="img/mini_pc/case_0.jpg" alt="Case assembled" width="256" height="420">
+                                                    <p>The fan was one of the first electrical components I tackled, since it was very simple and only involved crimping a few connectors.</p>
+                                                    <img src="img/mini_pc/fan_installation_0.jpg" alt="Fan back view" width="256" height="420">
+                                                    <p>After the case was done, there was more electrical assembly, like wiring up, soldering, and crimping connectors on the power button.</p>
+                                                    <img src="img/mini_pc/switch_0.jpg" alt="Power button wiring" width="120" height="192">
+                                                    <img src="img/mini_pc/switch_installation_0.jpg" alt="Power button installation" width="120" height="192">
+                                                    <img src="img/mini_pc/wiring_0.jpg" alt="Wiring" width="120" height="192">
+                                                    <p>Plus, there was the actual Jetson, which had to be installed on its carrier board along with the WiFi card, SSD, and pretty much everything else to take it from a bare processor/memory module to a real PC.</p>
+                                                    <img src="img/mini_pc/jetson_assembly.jpg" alt="Jetson assembly" width="420" height="256">
+                                                    <p>Finally, after a lot of assembly, I had the finished hardware!</p>
+                                                    <img src="img/mini_pc/finished_0.jpg" alt="Finished assembly 1" width="128" height="256">
+                                                    <img src="img/mini_pc/lighted_box_0.jpg" alt="Finished assembly with lights on" width="128" height="256">
+                                                    <p>Even the lights turned out pretty well (although they were kind of a last-minute hack job).</p>
+                                                    <p>So that's the assembly process; it was pretty involved, and with things like wiring, you learn to pay close attention to what you're doing because one mistake could be the end of the $730 board.<br>
+                                                    Thankfully, I didn't have any major mishaps with the assembly!</p>`
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        name: "Software",
+                                        desc: `The initial software/firmware installation was anything but simple and easy, but eventually I got it working. As a warning, this node will get pretty technical further down. Read at your own risk.
+                                            <p>Before anything so complicate as a user interface, there were things that needed done like flashing the firmware on the actual board itself. That took a solid 10 hours of work to get it to the point where it would even take the firmware.<br>
+                                            It doesn't help that I was working on fairly slow, rural internet and had to download the 8-15 GB image multiple times because of the way the firmware works on this particular line of modules from NVIDIA.<br>
+                                            But eventually I got the firmware on the thing, so I could move on to the operating system.</p>
+                                            <p>Since this is not a normal computer, there's no such thing as a preinstalled operating system...the only OS that works properly with this module is a specialized fork of Ubuntu (a Linux distribution) that NVIDIA distributes.<br>
+                                            The downside? It doesn't support many things (one example is the latest version of WiFi, which just so happened to be what the WiFi card I bought used) that are necessary for a PC to have.</p>
+                                            <p>The whole WiFi and Bluetooth thing ended up to be a much deeper rabbit hole than I expected, since every time I got the WiFi closer to working, the Bluetooth built into the same card as the WiFi started malfunctioning and behaving strangely.<br>
+                                            The rabbit hole ended with me digging around in the Linux kernel code and trying to find where it interacted with the device for the WiFi card, and change settings to somehow work with the new WiFi. After hours of trial and mostly error, I finally did get it to the point where the WiFi would work and connect fairly consistently to networks.<br>
+                                            I ended up having to just disable the Bluetooth entirely because it was proving not to be possible to get it working with the particular custom distribution of Linux.</p>
+                                            <p>So after hours of troubleshooting, I at last had a PC that worked nearly as I wanted it to! There are several reasons why it was impractical to keep such a machine around, but I won't go into them.</p>
+                                            <p>The main point here is that persistence can help you solve a lot of problems; this was certainly a project that tested my persistence and ingenuity greatly.</p>`
+                                    }
+                                ]
+                            },
+                            {
+                                name: "Costs",
+                                desc: "This was one of my most expensive projects in dollar amount, although it didn't take too long.",
+                                children: [
+                                    {
+                                        name: "Time",
+                                        desc: "All told, including all of the design from scratch as well as the fabrication, procurement, and assembly, I spent something like 50 hours on this project. It was pretty quick, too; only a couple months from start to finish."
+                                    },
+                                    {
+                                        name: "Procurement",
+                                        desc: "All told, the materials for this project costed me over $1100, because the computer module itself is $730 at the lowest."
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    // Forester
+                    {
+                        name: "Car repair",
+                        desc: "",
+                        children: [
+
                         ]
                     }
                 ]
@@ -340,6 +462,10 @@
         name: "Art",
         desc: "I'm living proof that you can nerd out about art too!",
         children: [
+            {
+                name: "Cooking",
+                desc: "I love to cook and bake; there's something very satisfying about making something and then eating it."
+            },
             {
                 name: "Music",
                 desc: "The musical/performing arts are some of my personal favorites.<br><p>I would love to learn many more instruments than I have time to play.</p>",
@@ -537,7 +663,7 @@
         let xOffset = mouseX - canvas.width / 2;
         let yOffset = mouseY - canvas.height / 2;
         let curMouseDist = Math.hypot(xOffset, yOffset);
-        let moveSpeed = framesWithBoxOpen < 20 ? Math.min(Math.max((curMouseDist - 100) / 70, 0), 5) / (framesWithBoxOpen / 2) : 0;
+        let moveSpeed = framesWithBoxOpen < 20 ? Math.min(Math.max((curMouseDist - 100) / 70, 0), 6) / ((framesWithBoxOpen + 2) / 3) : 0;
         let moveDir = Math.atan2(yOffset, xOffset);
 
         let curDist = Math.hypot(canvas.width / 2 - halfX, canvas.height / 2 - halfY);
@@ -551,8 +677,8 @@
                 el.style.left = (Number(el.style.left.slice(0, -2)) + dx) + "px";
                 el.style.top = (Number(el.style.top.slice(0, -2)) + dy) + "px";
             });
-        } else if (afterDist < distBetweenNodes * 0.8 * levels) {
-            let scale = (1.1 - afterDist / (distBetweenNodes * 0.9 * levels));
+        } else if (afterDist < distBetweenNodes * 1.05 * levels) {
+            let scale = (1.1 - afterDist / (distBetweenNodes * 1.15 * levels));
             dx *= scale;
             dy *= scale;
             halfX += dx;
@@ -669,23 +795,23 @@
             let thisAngle: number;
             if (prevAngle !== undefined && prevBoxAngle) {
                 angle = numBoxes > 4
-                    ? prevAngle - 1 * cousinScaleFac * prevBoxAngle + (2 * cousinScaleFac * prevBoxAngle / (numBoxes - 1)) * i
+                    ? prevAngle - 1.4 * cousinScaleFac * (prevBoxAngle * 0.5 + 0.12) + (2.8 * cousinScaleFac * (prevBoxAngle * 0.5 + 0.12) / (numBoxes - 1)) * i
                     : numBoxes > 2
-                        ? prevAngle - 0.6 * cousinScaleFac * prevBoxAngle + (1.2 * cousinScaleFac * prevBoxAngle / (numBoxes - 1)) * i
+                        ? prevAngle - 0.75 * cousinScaleFac * (prevBoxAngle * 0.5 + 0.12) + (1.5 * cousinScaleFac * (prevBoxAngle * 0.5 + 0.12) / (numBoxes - 1)) * i
                         : numBoxes > 1
-                            ? prevAngle - 0.45 * cousinScaleFac * prevBoxAngle + (0.9 * cousinScaleFac * prevBoxAngle / (numBoxes - 1)) * i
+                            ? prevAngle - 0.45 * cousinScaleFac * (prevBoxAngle * 0.5 + 0.12) + (0.9 * cousinScaleFac * (prevBoxAngle * 0.5 + 0.12) / (numBoxes - 1)) * i
                             : prevAngle - (boxes[i].name.length % 2 == 0 ? -0.25 : 0.25);
                 if (numBoxes > 2) {
-                    thisAngle = (1.4 * prevBoxAngle / (numBoxes - 1));
+                    thisAngle = (1.5 * prevBoxAngle / (numBoxes - 1));
                 } else if (numBoxes > 1) {
-                    thisAngle = (0.8 * prevBoxAngle / (numBoxes - 1));
+                    thisAngle = (0.75 * prevBoxAngle / (numBoxes - 1));
                 } else {
                     thisAngle = prevBoxAngle * 1.1;
                 }
                 // if (!(boxes[i - 1]?.children || boxes[i + 1]?.children)) {
                 //     thisAngle *= 2;
                 // }
-                boxes[i]?.children !== undefined && (angle += ((boxes[i - 1]?.children?.length ?? 0) - (boxes[i + 1]?.children?.length ?? 0)) * 0.04);
+                boxes[i]?.children !== undefined && (angle += (Math.sqrt(boxes[i - 1]?.children?.length ?? 0) - Math.sqrt(boxes[i + 1]?.children?.length ?? 0)) * 0.07);
             } else {
                 angle = (2 * Math.PI / numBoxes) * i - Math.PI / numBoxes / 2;
                 thisAngle = 2 * Math.PI / numBoxes;
@@ -706,7 +832,7 @@
                 drawBoxes(boxes[i].children!, ...pos, [
                         boxes[i - 1] ?? aunts[0]?.children?.[(aunts[0]?.children?.length ?? 0) - 1],
                         boxes[i + 1] ?? aunts[1]?.children?.[0]
-                    ], distBetweenNodes * 0.9, angle, thisAngle, Math.max(Math.floor(lineWidth * 0.7), 2), level + 1);
+                    ], undefined, angle, thisAngle, Math.max(Math.floor(lineWidth * 0.7), 2), level + 1);
             }
         }
     }
