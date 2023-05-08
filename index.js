@@ -52,7 +52,7 @@
             },
             {
                 name: "Basic info",
-                desc: `The Morrison household consists of 6 (sometimes squirrely) children and our parents.<br>
+                desc: `The Morrison household consists of 6 (sometimes squirrel-y) children and our parents.<br>
                     <p>We live in Franklin, IN, where you can get all four seasons in a single day.</p>`
             },
             {
@@ -432,7 +432,9 @@
                         ]
                     },
                     {
-                        name: "Car repair"
+                        name: "Car repair",
+                        desc: "",
+                        children: []
                     }
                 ]
             }
