@@ -158,29 +158,13 @@
         children: [
             {
                 name: "Digital",
-                desc: "Some of my favorite/best projects in the world of 1s and 0s."
+                desc: "Some of my favorite/best projects in the world of 1s and 0s.",
+                children: []
             },
             {
                 name: "Physical",
                 desc: "A few highlights of my projects that are made in reality.",
                 children: [
-                    {
-                        name: "Bookbinding",
-                        desc: "Making books is something I first tried when I was somewhere around 12. That one didn't turn out too well, but since then I've gotten a bit better.",
-                        children: [
-                            {
-                                name: "Photos",
-                                desc: `<img src="img/bookbinding/journal_edge.jpg" alt="Journal, edge on" width="216" height="384">
-                                    <img src="img/bookbinding/journal_top.jpg" alt="Journal, top view" width="384" height="216">`
-                            },
-                            {
-                                name: "Materials",
-                                desc: `I use whatever paper I can find enough of to do these books, which are usually between 100 and 200 pages.
-                                    <p>For the covers, I have tried fabric before, but my favorite is leather. The core of the covers are made of a thin chipboard to give them some flexibility, and then that is covered with whatever other decorations or materials I choose.</p>
-                                    <p>I hand-stitch the binding on every book I make, usually with upholstery thread because it's significantly stronger than normal sewing thread. The stitching is one of the hardest parts of making a book (it's also the actual "binding").</p>`
-                            }
-                        ]
-                    },
                     {
                         name: "2021 Bow Build",
                         desc: "This was me deciding to use 4-H as an excuse to do something I've always wanted to do: build a shooting bow from scratch.",
@@ -432,9 +416,104 @@
                         ]
                     },
                     {
+                        name: "Bookbinding",
+                        desc: "Making books is something I first tried when I was somewhere around 12. That one didn't turn out too well, but since then I've gotten a bit better.",
+                        children: [
+                            {
+                                name: "Photos",
+                                desc: `<img src="img/bookbinding/journal_edge.jpg" alt="Journal, edge on" width="216" height="384">
+                                    <img src="img/bookbinding/journal_top.jpg" alt="Journal, top view" width="384" height="216">`
+                            },
+                            {
+                                name: "Materials",
+                                desc: `I use whatever paper I can find enough of to do these books, which are usually between 100 and 200 pages.
+                                    <p>For the covers, I have tried fabric before, but my favorite is leather. The core of the covers are made of a thin chipboard to give them some flexibility, and then that is covered with whatever other decorations or materials I choose.</p>
+                                    <p>I hand-stitch the binding on every book I make, usually with upholstery thread because it's significantly stronger than normal sewing thread. The stitching is one of the hardest parts of making a book (it's also the actual "binding").</p>`
+                            }
+                        ]
+                    },
+                    {
                         name: "Car repair",
-                        desc: "",
-                        children: []
+                        desc: "From the fall of 2022 through the summer of 2023, I have been working on repairing and updating a 2003 Subaru Forester, which includes a lot of work on all different systems of the car.",
+                        children: [
+                            {
+                                name: "Seat mounts",
+                                desc: `The mounting tabs on the front seats were so rusty that the seats may have flown off in the event of a wreck or something; this needed fixed.
+                                    <img src="img/forester/seat_tabs/removed.jpg" alt="Seat removed" width="256" height="400">
+                                    <p>Fixing them involved removing the front seats, sanding the tabs, and repainting them.<br>
+                                    They turned out great though!</p>
+                                    <img src="img/forester/seat_tabs/new_paint_1.jpg" alt="Seat removed" width="400" height="256">`
+                            },
+                            {
+                                name: "Electrical",
+                                desc: `When I started this project, none of the interior lights or the radio worked. One of the fuses blew every time I put a new one in.<br>
+                                    <img src="img/forester/electrical/main_fuse_box.jpg" alt="Fuse box" width="256" height="400">
+                                    <p>Eventually, after many hours of tracing wires, removing panels, and testing for shorts, I found a broken wire above the passenger seat (it's the blue one with a red stripe).</p>
+                                    <img src="img/forester/electrical/broken_wire.jpg" alt="Broken wire" width="400" height="256">
+                                    <p>I fixed it with a splint, and then filed off the sharp corner of the frame it had been rubbing on.</p>
+                                    <img src="img/forester/electrical/fixed.jpg" alt="Fixed wire with splint" width="256" height="400">
+                                    <p>After that, all the interior lights and electrical features that had been broken started working!</p>
+                                    <img src="img/forester/electrical/light_working.jpg" alt="Light working" width="400" height="256">`
+                            },
+                            {
+                                name: "Brakes",
+                                desc: "There was a significant amount of work to do on the brakes, including the parking brakes and the disc brakes as well.",
+                                children: [
+                                    {
+                                        name: "Parking brakes",
+                                        desc: `The parking brakes were deteriorated to the point where they no longer actually worked properly. Many of the springs and parts inside were broken or missing.
+                                            <img src="img/forester/brakes/old_pbrake.jpg" alt="Old parking brake assembly" width="256" height="400">
+                                            <img src="img/forester/brakes/old_pbrake_spring.jpg" alt="Old parking brake spring close-up" width="256" height="400">
+                                            <p>I essentially replaced every part of the parking brakes except the shoes and control cables. It was quite a pain getting it all held back in there as I installed the rotor back in place.</p>
+                                            <img src="img/forester/brakes/new_pbrake_springs.jpg" alt="New parking brake springs" width="256" height="400"><br>
+                                            <img src="img/forester/brakes/new_pbrake.jpg" alt="New parking brake parts" width="400" height="256">`
+                                    },
+                                    {
+                                        name: "Disc brakes",
+                                        desc: `The brake pads needed replaced, but the actual rotors looked to be in good shape.<br>
+                                            <img src="img/forester/brakes/new_brake_pads.jpg" alt="New brake pads" width="256" height="400">`
+                                    }
+                                ]
+                            },
+                            {
+                                name: "Suspension",
+                                desc: `After over 130k miles, this car needed some suspension parts replaced badly.`,
+                                children: [
+                                    {
+                                        name: "Struts",
+                                        desc: `The struts on this vehicle were so worn out that they basically did nothing.
+                                            <img src="img/forester/suspension/old_strut_1.jpg" alt="Old strut" width="400" height="256">
+                                            <p>Replacing all four struts involved removing the old ones (including the tightest bolts I've ever seen)...</p>
+                                            <img src="img/forester/suspension/old_strut_0.jpg" alt="Tight bolts!" width="256" height="400">
+                                            <p>Compressing the springs and removing them, since the springs were still good...</p>
+                                            <img src="img/forester/suspension/spring_compressed_0.jpg" alt="Compressed spring" width="400" height="256">
+                                            <p>Putting the springs on the new struts...</p>
+                                            <img src="img/forester/suspension/new_struts.jpg" alt="New struts" width="256" height="400">
+                                            <p>And installing the new struts...</p>
+                                            <img src="img/forester/suspension/new_strut_0.jpg" alt="New strut installation" width="256" height="400">`,
+                                    },
+                                    {
+                                        name: "Sway bar link",
+                                        desc: `The sway bar improves handling and reduces vehicle lean toward the outside of curves. Unfortunately, on this car, one of the sway bar links was completely disconnected, the ball joint nowhere to be found.<br>
+                                            <img src="img/forester/suspension/broken_sblink_0.jpg" alt="Broken sway bar link" width="192" height="384">
+                                            <img src="img/forester/suspension/broken_sblink_1.jpg" alt="Broken sway bar link" width="192" height="384">
+                                            <p>This was a pretty easy replacement compared to most of the other suspension work. No bolts broke or anything.</p>
+                                            <img src="img/forester/suspension/new_sblink.jpg" alt="Broken sway bar link" width="400" height="256">`
+                                    },
+                                    {
+                                        name: "Balljoints",
+                                        desc: `Don't replace the ball joints on your car unless you absolutely have to...it's painful.
+                                            <img src="img/forester/suspension/old_balljoint_0.jpg" alt="Old balljoint" width="400" height="256">
+                                            <p>Multiple bolts broke and had to be drilled out, and it's nearly impossible to get the ball joints out of the knuckle.<br>
+                                            Hopefully this car handles a ton better than it used to after this replacement, because it won't worth it otherwise!</p>`
+                                    }
+                                ]
+                            },
+                            {
+                                name: "Engine",
+                                desc: "As of the time of writing, this is the next step after the suspension..."
+                            }
+                        ]
                     }
                 ]
             }
@@ -594,7 +673,7 @@
             ]
         }
     ];
-    const distBetweenNodes = 375;
+    const distBetweenNodes = 400;
     const levels = 7;
     let canvas = document.getElementById("main_canvas");
     let ctx = canvas.getContext("2d");
@@ -652,8 +731,8 @@
                 el.style.top = (Number(el.style.top.slice(0, -2)) + dy) + "px";
             });
         }
-        else if (afterDist < distBetweenNodes * 1.05 * levels) {
-            let scale = (1.1 - afterDist / (distBetweenNodes * 1.15 * levels));
+        else if (afterDist < distBetweenNodes * 0.9 * levels) {
+            let scale = (1.1 - afterDist / (distBetweenNodes * 1.0 * levels));
             dx *= scale;
             dy *= scale;
             halfX += dx;
@@ -665,7 +744,7 @@
         }
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCrosses(xOffset * -0.02, yOffset * -0.02);
-        drawBoxes(DATA[0]?.children, 0, 0, [undefined, undefined], undefined, undefined, undefined, 12, 1);
+        drawBoxes(DATA[0]?.children, 0, 0, DATA[0], [undefined, undefined], undefined, undefined, undefined, 12, 1);
         requestAnimationFrame(redraw);
     }
     function resizeCanvas() {
@@ -750,10 +829,10 @@
         div.style.top = pos[1] + "px";
         container.append(div);
     }
-    function drawBoxes(boxes, startX, startY, aunts, dist = distBetweenNodes, prevAngle, prevBoxAngle, lineWidth = 2, level = 0) {
+    function drawBoxes(boxes, startX, startY, parent, aunts, dist = distBetweenNodes, prevAngle, prevBoxAngle, lineWidth = 2, level = 0) {
         let numBoxes = boxes.length;
         ctx.strokeStyle = "black";
-        let cousinScaleFac = 1 + (aunts[0]?.children !== undefined ? 0 : 0.25) + (aunts[1]?.children !== undefined ? 0 : 0.25);
+        let cousinScaleFac = 0.75 + (aunts[0]?.children !== undefined ? 0 : 0.25) + (aunts[1]?.children !== undefined ? 0 : 0.25);
         for (let i = 0; i < numBoxes; i++) {
             ctx.lineWidth = lineWidth;
             let angle;
@@ -764,10 +843,10 @@
                 angle = numBoxes > 4
                     ? prevAngle - 1.4 * cousinScaleFac * (prevBoxAngle * 0.5 + 0.12) + (2.8 * cousinScaleFac * (prevBoxAngle * 0.5 + 0.12) / (numBoxes - 1)) * i
                     : numBoxes > 2
-                        ? prevAngle - 0.75 * cousinScaleFac * (prevBoxAngle * 0.5 + 0.12) + (1.5 * cousinScaleFac * (prevBoxAngle * 0.5 + 0.12) / (numBoxes - 1)) * i
+                        ? prevAngle - 0.9 * cousinScaleFac * (prevBoxAngle * 0.5 + 0.12) + (1.8 * cousinScaleFac * (prevBoxAngle * 0.5 + 0.12) / (numBoxes - 1)) * i
                         : numBoxes > 1
-                            ? prevAngle - 0.45 * cousinScaleFac * (prevBoxAngle * 0.5 + 0.12) + (0.9 * cousinScaleFac * (prevBoxAngle * 0.5 + 0.12) / (numBoxes - 1)) * i
-                            : prevAngle - (boxes[i].name.length % 2 == 0 ? -0.25 : 0.25);
+                            ? prevAngle - 0.5 * cousinScaleFac * (prevBoxAngle * 0.5 + 0.12) + (1 * cousinScaleFac * (prevBoxAngle * 0.5 + 0.12) / (numBoxes - 1)) * i
+                            : prevAngle - (boxes[i].name.length % 2 == 0 ? -0.15 : 0.15);
                 if (numBoxes > 2) {
                     thisAngle = (1.5 * prevBoxAngle / (numBoxes - 1));
                 }
@@ -777,7 +856,13 @@
                 else {
                     thisAngle = prevBoxAngle * 1.1;
                 }
-                boxes[i]?.children !== undefined && (angle += (Math.sqrt(boxes[i - 1]?.children?.length ?? 0) - Math.sqrt(boxes[i + 1]?.children?.length ?? 0)) * 0.07);
+                boxes[i]?.children !== undefined && (angle += (Math.sqrt(boxes[i - 1]?.children?.length ?? 0) - Math.sqrt(boxes[i + 1]?.children?.length ?? 0)) * 0.04);
+                if ((boxes[i].name === "Physical" || boxes[i].name === "Digital") && parent?.name === "Projects") {
+                    angle *= 2.3;
+                    angle += 0.6;
+                    thisDist *= 1.2;
+                    thisAngle *= 1.2;
+                }
             }
             else {
                 angle = (2 * Math.PI / numBoxes) * i - Math.PI / numBoxes / 2;
@@ -796,7 +881,7 @@
                 boxes[i].drawn = true;
             }
             if (boxes[i]?.children !== undefined) {
-                drawBoxes(boxes[i].children, ...pos, [
+                drawBoxes(boxes[i].children, ...pos, boxes[i], [
                     boxes[i - 1] ?? aunts[0]?.children?.[(aunts[0]?.children?.length ?? 0) - 1],
                     boxes[i + 1] ?? aunts[1]?.children?.[0]
                 ], undefined, angle, thisAngle, Math.max(Math.floor(lineWidth * 0.7), 2), level + 1);
