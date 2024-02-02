@@ -168,22 +168,226 @@
         name: "Projects",
         desc: "Notable things I have made or done.",
         children: [
+            // Digital
             {
                 name: "Digital",
-                desc: "Some of my favorite/best projects in the world of 1s and 0s.",
+                desc: "A selection of my favorite/best projects in the world of 1s and 0s.",
                 children: [
-                    // // 
+                    // Infinity Tic-Tac-Toe
+                    {
+                        name: "Infinity Tic-Tac-Toe",
+                        desc: "Infinity Tic-Tac-Toe builds upon the classic game of tic-tac-toe with some interesting twists. Try it to find out!",
+                        children: [
+                            {
+                                name: "The idea",
+                                desc: `The idea for a game of tic-tac-toe where each square contains another tic-tac-toe board and you win the lower level boards to get spaces in the higher level boards has been circling around in my family for years.
+                                    <p>I simply finally decided to turn it into a multiplayer web game. I figured it would be a great warm-up/practice run for coding Spacetime later, as it would give me some experience writing efficient websocket code.</p>
+                                    <p>So this whole project was really just a warm-up for coding Spacetime and other web-based games later.</p>`
+                            },
+                            {
+                                name: "The process",
+                                desc: `It actually took me a while to decide whether to use TypeScript or just plain JS for this project, but I ended up going with the TS option because it is generally easier to write code that works as intended when you have typing capability.
+                                    <p>After that, actually producing the game took a surprisingly short amount of time.</p>`,
+                                children: [
+                                    {
+                                        name: "Server",
+                                        desc: `I wrote the server for this game in NodeJS with TypeScript as the language.
+                                            <p>It turns out that writing server-side code in NodeJS is one of my favorite types of programming<p>
+                                            <p>The actual code of this game is very small, very light, and very simple. The only real hard part was figuring out the binary messaging system between the server and the client.</p>`
+                                    },
+                                    {
+                                        name: "Client",
+                                        desc: `Writing the client for Infinity Tic-Tac-Toe was very enjoyable; it involved some fun CSS and HTML and a lot of TypeScript for the server communication and also the canvas drawing and rendering.`
+                                    },
+                                    {
+                                        name: "Hosting",
+                                        desc: `After coding a working version of this game, I had to decide where and how to host the server. Since I needed a fully custom server code, I couldn't simply upload it to a Wordpress site or something.
+                                            <p>In the end, I decided to rent an Ubuntu virtual machine through DigitalOcean, so I had to configure it through SSH and a terminal window.</p>
+                                            <p>Site security was also an interesting problem to solve. Since I didn't want to pay a bunch for an HTTPS certificate, I ended up finding a free service that will give and renew short-life HTTPS certificates called Let's Encrypt. So far it seems to have worked well.</p>`
+                                    }
+                                ]
+                            },
+                            {
+                                name: "The result",
+                                desc: "This game turned out quite fun; there are still some small bugs but overall it works well. One thing to note: it takes an incredibly long time to play if you have more than a couple layers!",
+                                path: "https://tictactoe.albiemorrison.com/"
+                            }
+                        ]
+                    },
+                    // Starblast mods
                     // {
-                    //     name: "Infinity Tic-Tac-Toe"
+                    //     name: "Starblast.io mods",
+                    //     desc: "These are mods for the game <a href=\"https://starblast.io\" target=\"_blank\">https://starblast.io</a>.",
+                    //     children: [
+                    //         {
+                    //             name: "Hardpoint mod",
+                    //             desc: "I wanted to code a hardpoint gamemode for this game, and this mod also has some unique twists not really found in any other mods for this game.",
+                    //             path: "https://github.com/AlbieMorrison/Hardpoint_Mod"
+                    //         },
+                    //         {
+                    //             name: "Insect mod",
+                    //             desc: "This is another interesting mod idea I had that breaks the flow of the base game and adds additional fun features. I never fully finished this mod, but it's a good start at least!",
+                    //             path: "https://github.com/AlbieMorrison/Insect_Mod"
+                    //         }
+                    //     ]
                     // },
-                    // {
-                    //     name: "Starblast.io mods"
-                    // },
-                    // {
-                    //     name: "Spacetime"
-                    // }
+                    // Spacetime
+                    {
+                        name: "Spacetime",
+                        children: [
+                            {
+                                name: "Inspiration"
+                            },
+                            {
+                                name: "Motivation"
+                            },
+                            {
+                                name: "Execution"
+                            }
+                        ]
+                    },
+                    // LOGIC site
+                    {
+                        name: "LOGIC Website",
+                        children: [
+                            {
+                                name: "Problem",
+                                desc: `The LOGIC site is hard to use and navigate, and has many other small problems as well.
+                                    <img src="img/logic_site/old_site_forum.png" alt="Forum on LOGIC site" width="400" height="256">`
+                            },
+                            {
+                                name: "New site",
+                                desc: `Because of all those problems, I started into coding a new website for the speech and debate club. Even knowing it would probably never get used, it was still a great learning experience.
+                                    <p>I got do a little of everything in this project, from user databases to payment methods to UI design.</p>`,
+                                children: [
+                                    {
+                                        name: "Client"
+                                    },
+                                    {
+                                        name: "Server",
+                                        desc: `The webpage users see might be the first thing that comes to mind at the word "website."
+                                            <p>But the server is also an essential part of every website; without it, none of that content could even get to the user!</p>
+                                            <p>On this project, I coded the entire server from scratch in NodeJS; it was helpful to use the same base language for the functional parts of both the server and client parts of this project.</p>`,
+                                        children: [
+                                            {
+                                                name: "Security"
+                                            },
+                                            {
+                                                name: "Payments"
+                                            },
+                                            {
+                                                name: "Database"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    // SBSE++
+                    {
+                        name: "SBSE++",
+                        children: [
+                            {
+                                name: "The original"
+                            },
+                            {
+                                name: "My improvements"
+                            },
+                            {
+                                name: "Challenges"
+                            }
+                        ]
+                    },
+                    // SD projects
+                    {
+                        name: "SD projects",
+                        desc: "Some projects that I've done primarily for Streamline Designs.",
+                        children: [
+                            // ULog Utility
+                            {
+                                name: "ULog Utility",
+                                children: [
+                                    {
+                                        name: "What is it?"
+                                    },
+                                    {
+                                        name: "Development"
+                                    },
+                                    {
+                                        name: "Functionality"
+                                    }
+                                ]
+                            },
+                            // Process plans
+                            {
+                                name: "Process plans",
+                                children: [
+                                    {
+                                        name: "The problem"
+                                    },
+                                    {
+                                        name: "The solution"
+                                    }
+                                ]
+                            },
+                            // Drone code
+                            {
+                                name: "Code for drones",
+                                children: [
+                                    // RC
+                                    {
+                                        name: "RC transmitter"
+                                    },
+                                    // Onboard
+                                    {
+                                        name: "Onboard firmware"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    // AlbieMorrison.github.io
+                    {
+                        name: "albiemorrison.github.io",
+                        desc: `I coded this website from scratch, including a procedural engine for placing the nodes.
+                            <p>You can find the Github repository by clicking this node.</p>`,
+                        path: "https://github.com/AlbieMorrison/AlbieMorrison.github.io"
+                    },
+                    // Experience
+                    {
+                        name: "Experience",
+                        desc: "The languages I have experience with.",
+                        children: [
+                            {
+                                name: "HTML and CSS",
+                                desc: "I have quite a bit of experience with HTML and CSS, having built multiple web pages and applications using them."
+                            },
+                            {
+                                name: "TS and JS",
+                                desc: "TypeScript is one of my favorite languages to program in, and JavaScript is very similar, just without the typing capability."
+                            },
+                            {
+                                name: "Python",
+                                desc: "My experience coding in Python mostly comes from Streamline Designs (my workplace) and also some small projects that just need a quick script whipped up."
+                            },
+                            {
+                                name: "SQLite",
+                                desc: "The ULog Utility project has given me a bit of experience working with databases."
+                            },
+                            {
+                                name: "C/C++",
+                                desc: "I have a decent amount of experience programming in C++, since all of the firmware I have written for drones (as well as a few other projects) has been in C++."
+                            },
+                            {
+                                name: "Java",
+                                desc: "I've only done a bit of Java, when I coded a chess timer app for Android once."
+                            }
+                        ]
+                    }
                 ]
             },
+            // Physical
             {
                 name: "Physical",
                 desc: "A few highlights of my projects that are made in reality.",
@@ -398,7 +602,7 @@
                                                     <img src="img/mini_pc/switch_installation_0.jpg" alt="Power button installation" width="120" height="192">
                                                     <img src="img/mini_pc/wiring_0.jpg" alt="Wiring" width="120" height="192">
                                                     <p>Plus, there was the actual Jetson, which had to be installed on its carrier board along with the WiFi card, SSD, and pretty much everything else to take it from a bare processor/memory module to a real PC.</p>
-                                                    <img src="img/mini_pc/jetson_assembly.jpg" alt="Jetson assembly" width="420" height="256">
+                                                    <img src="img/mini_pc/jetson_assembly_0.jpg" alt="Jetson assembly" width="420" height="256">
                                                     <p>Finally, after a lot of assembly, I had the finished hardware!</p>
                                                     <img src="img/mini_pc/finished_0.jpg" alt="Finished assembly 1" width="128" height="256">
                                                     <img src="img/mini_pc/lighted_box_0.jpg" alt="Finished assembly with lights on" width="128" height="256">
@@ -714,6 +918,10 @@
     var startMovement = false;
     var boxOpen: boolean = false;
     var framesWithBoxOpen: number = 0;
+    var firstFrame: boolean = true;
+    // var lastFrameTs: number = 0;
+    // var frameTimeAvg: number = 0;
+    var lastMoveSpeed: number = 0;
     // var reducedMotion: boolean = false;
 
     function centerCoords(x: number, y: number): Position {
@@ -741,17 +949,23 @@
         }
     }
 
-    function redraw() {
-        // if (!reducedMotion) {
+    function redraw(ts: DOMHighResTimeStamp) {
+        // frameTimeAvg = frameTimeAvg * 0.9 + (ts - lastFrameTs) * 0.1;
+        // console.log(frameTimeAvg);
         if (boxOpen) {
             framesWithBoxOpen++;
         } else {
             framesWithBoxOpen = 1;
         }
+        if (framesWithBoxOpen >= 20) {
+            requestAnimationFrame(redraw);
+            return;
+        }
         let xOffset = mouseX - canvas.width / 2;
         let yOffset = mouseY - canvas.height / 2;
         let curMouseDist = Math.hypot(xOffset, yOffset);
-        let moveSpeed = framesWithBoxOpen < 20 ? Math.min(Math.max((curMouseDist - 100) / 70, 0), 6) / ((framesWithBoxOpen + 2) / 3) : 0;
+        // Smooth movement speed by averaging with last frame.
+        let moveSpeed = (lastMoveSpeed + Math.min(Math.max((curMouseDist - 100) / 70, 0), 10) / ((framesWithBoxOpen + 2) / 2)) / 2;
         let moveDir = Math.atan2(yOffset, xOffset);
 
         let curDist = Math.hypot(canvas.width / 2 - halfX, canvas.height / 2 - halfY);
@@ -769,18 +983,26 @@
             let scale = (1.1 - afterDist / (distBetweenNodes * 1.0 * levels));
             dx *= scale;
             dy *= scale;
+            if (!firstFrame && Math.hypot(dx, dy) < 0.8) {
+                requestAnimationFrame(redraw);
+                return;
+            }
             halfX += dx;
             halfY += dy;
             (document.querySelectorAll("div.box") as NodeListOf<HTMLDivElement>).forEach((el) => {
                 el.style.left = (Number(el.style.left.slice(0, -2)) + dx) + "px";
                 el.style.top = (Number(el.style.top.slice(0, -2)) + dy) + "px";
             });
+        } else if (!firstFrame) {
+            requestAnimationFrame(redraw);
+            return;
         }
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCrosses(xOffset * -0.02, yOffset * -0.02);
         drawBoxes(DATA[0]?.children!, 0, 0, DATA[0], [undefined, undefined], undefined, undefined, undefined, 12, 1);
+        firstFrame = false;
+        lastMoveSpeed = Math.hypot(dx, dy);
         requestAnimationFrame(redraw);
-        // }
     }
 
     function resizeCanvas() {
@@ -793,6 +1015,7 @@
         mouseX = halfX;
         mouseY = halfY;
         startMovement = false;
+        firstFrame = true;
         (document.querySelectorAll("div.box") as NodeListOf<HTMLDivElement>).forEach((el) => {
             el.style.left = (Number(el.style.left.slice(0, -2)) + halfX - oldHalfX) + "px";
             el.style.top = (Number(el.style.top.slice(0, -2)) + halfY - oldHalfY) + "px";
@@ -806,6 +1029,7 @@
         } else {
             if (Math.hypot(canvas.width / 2 - e.x, canvas.height / 2 - e.y) < 300) {
                 startMovement = true;
+                firstFrame = true;
             }
         }
     }
@@ -901,10 +1125,10 @@
                 // }
                 boxes[i]?.children !== undefined && (angle += (Math.sqrt(boxes[i - 1]?.children?.length ?? 0) - Math.sqrt(boxes[i + 1]?.children?.length ?? 0)) * 0.04);
                 if ((boxes[i].name === "Physical" || boxes[i].name === "Digital") && parent?.name === "Projects") {
-                    angle *= 2.3;
-                    angle += 0.6;
-                    thisDist *= 1.2;
-                    thisAngle *= 1.2;
+                    angle *= 1.6;
+                    angle += 0.3;
+                    thisDist *= 1.1;
+                    thisAngle *= 1.65;
                 }
             } else {
                 angle = (2 * Math.PI / numBoxes) * i - Math.PI / numBoxes / 2;
@@ -924,9 +1148,9 @@
             }
             if (boxes[i]?.children !== undefined) {
                 drawBoxes(boxes[i].children!, ...pos, boxes[i], [
-                        boxes[i - 1] ?? aunts[0]?.children?.[(aunts[0]?.children?.length ?? 0) - 1],
-                        boxes[i + 1] ?? aunts[1]?.children?.[0]
-                    ], undefined, angle, thisAngle, Math.max(Math.floor(lineWidth * 0.7), 2), level + 1);
+                    boxes[i - 1] ?? aunts[0]?.children?.[(aunts[0]?.children?.length ?? 0) - 1],
+                    boxes[i + 1] ?? aunts[1]?.children?.[0]
+                ], undefined, angle, thisAngle, Math.max(Math.floor(lineWidth * 0.7), 2), level + 1);
             }
         }
     }
@@ -954,5 +1178,5 @@
     //     }
     // };
     resizeCanvas();
-    redraw();
+    requestAnimationFrame(redraw);
 })();
